@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/tindakan"
+        android:icon="@drawable/baseline_apps_24"
+        android:title="Tindakan" />
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/artikel"
+        android:title="Map" />
+    <item
+        android:id="@+id/berita"
+        android:icon="@drawable/artikel"
+        android:title="Berita" />
+
+
+</menu>

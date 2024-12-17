@@ -1,0 +1,9 @@
+<!-- res/drawable/stroke_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" /> <!-- Transparent fill -->
+    <stroke
+        android:color="@color/black"
+        android:width="2dp" />
+    <corners
+        android:radius="20dp" />
+</shape>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/dashboard"
+        android:icon="@drawable/baseline_apps_24"
+        android:title="@string/title_dashboard" />
+    <item
+        android:id="@+id/nav_pelaporan"
+        android:icon="@drawable/artikel"
+        android:title="History" />
+
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/account"
+        android:title="Setting" />
+
+
+</menu>

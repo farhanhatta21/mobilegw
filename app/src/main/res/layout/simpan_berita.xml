@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SimpanBerita">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Back Button -->
+        <TextView
+            android:id="@+id/tvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/back"
+            android:fontFamily="@font/pop"
+            android:gravity="center_vertical"
+            android:text="Back"
+            android:textColor="#477871"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Gambar -->
+        <ImageView
+            android:id="@+id/ivBeritaImage"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="128dp"
+            android:background="@drawable/roundedijo"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBack"
+            app:srcCompat="@drawable/masukkangambar" />
+
+        <!-- Judul (EditText) -->
+        <EditText
+            android:id="@+id/etBeritaTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/pop"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:hint="Masukkan judul berita"
+            app:layout_constraintTop_toBottomOf="@id/ivBeritaImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Deskripsi (EditText) -->
+        <EditText
+            android:id="@+id/etBeritaDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/pop"
+            android:text="Deskripsi singkat berita"
+            android:textColor="#808080"
+            android:textSize="14sp"
+            android:hint="Masukkan deskripsi berita"
+            app:layout_constraintTop_toBottomOf="@id/etBeritaTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Detail (EditText) -->
+        <EditText
+            android:id="@+id/etBeritaDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/pop"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:hint="Masukkan detail berita"
+            app:layout_constraintTop_toBottomOf="@id/etBeritaDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Button Submit -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/button_green"
+            android:fontFamily="@font/pop"
+            android:text="Submit"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/etBeritaDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="abu">#CFCFCF</color>
+
+    <color name="abu1">#757575</color>
+    <color name="button_green">#48897F</color>
+    <color name="ijo">#477871</color>
+    <color name="kuning">#FFEB3B</color>
+    <color name="merah">#F44336</color>
+
+    48897F
+    <color name="red">#FF0000</color>
+    <color name="yellow">#FFC107</color>
+    <color name="green">#4CAF50</color>
+    <color name="ijoku">#48897F</color>
+
+</resources>

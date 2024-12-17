@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Gambar bukti laporan -->
+
+    <!-- Nama laporan -->
+    <TextView
+        android:id="@+id/tvNamaDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Laporan"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <!-- Lokasi laporan -->
+    <TextView
+        android:id="@+id/tvLokasiDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lokasi Laporan"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp" />
+
+    <!-- Status laporan -->
+    <ImageView
+        android:id="@+id/ivBuktiDetail"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:contentDescription="gambar"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loading" />
+
+
+    <Spinner
+        android:id="@+id/spinnerStatusDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonViewLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Lihat Lokasi"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/button_green"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/ivBuktiDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</LinearLayout>

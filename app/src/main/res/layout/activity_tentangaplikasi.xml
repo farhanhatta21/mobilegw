@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".Tentangaplikasi">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tentangaplikasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:background="#477871"
+            android:fontFamily="@font/pop"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Tentang Aplikasi"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/pop"
+            android:text="Aplikasi ini dirancang untuk membantu masyarakat dan petugas dalam mengelola sampah secara efisien dengan tujuan menciptakan lingkungan yang lebih bersih dan hijau. Dengan integrasi notifikasi, pelaporan, edukasi, serta sistem pelacakan lokasi, aplikasi ini memudahkan pengelolaan sampah secara real-time dan memberikan informasi yang akurat. Berikut adalah fitur utama dari aplikasi ini:\n\n1. Notifikasi Tempat Sampah Hampir Penuh\nAplikasi akan memberikan notifikasi kepada petugas kebersihan ketika sensor mendeteksi bahwa tempat sampah hampir penuh. Ini memungkinkan petugas untuk mengambil tindakan segera dan mencegah sampah meluap, menjaga kebersihan di area tersebut.\n\n2. Pelaporan Sampah Liar\nPengguna dapat melaporkan keberadaan sampah liar melalui formulir di aplikasi. Formulir ini berisi input nama pengguna, lokasi saat ini, lokasi detail, serta opsi untuk mengunggah foto bukti sampah liar. Fitur ini memungkinkan laporan yang akurat dan memudahkan petugas untuk segera menangani sampah liar di lokasi tersebut.\n\n3. Status Penjadwalan Pengambilan Sampah\nAplikasi menampilkan status terbaru dari jadwal pengambilan sampah di berbagai lokasi. Pengguna dan petugas dapat memantau kapan sampah akan diambil dan mengetahui jika ada penundaan atau perubahan jadwal.\n\n4. Edukasi Pemilahan Sampah dan Daur Ulang\nFitur edukasi ini bertujuan untuk meningkatkan kesadaran masyarakat tentang pentingnya pemilahan sampah. Aplikasi memberikan informasi tentang cara memilah sampah organik, anorganik, dan jenis sampah lainnya, serta panduan tentang jenis-jenis sampah yang dapat didaur ulang. Ini membantu mengurangi jumlah sampah yang berakhir di tempat pembuangan akhir.\n\n5. GPS untuk Pelacakan Tempat Sampah\nFitur GPS memberikan lokasi pasti tempat sampah yang telah dilaporkan dan tempat sampah yang hampir penuh. Pengguna dapat dengan mudah menemukan tempat sampah terdekat dan memastikan lokasi yang tepat bagi petugas untuk penjemputan.\n\n6. Komplain dan Feedback\nPengguna dapat mengajukan komplain terkait pengelolaan sampah atau kebersihan, dan petugas dapat merespons komplain tersebut melalui aplikasi. Fitur ini meningkatkan transparansi dan memungkinkan petugas untuk memberikan umpan balik langsung, yang menciptakan komunikasi dua arah yang lebih baik antara masyarakat dan petugas.\n\nAplikasi ini adalah solusi cerdas untuk pengelolaan sampah yang lebih baik, efisien, dan ramah lingkungan. Diharapkan aplikasi ini dapat membantu masyarakat dalam menjaga kebersihan lingkungan sekaligus memudahkan petugas kebersihan dalam menjalankan tugasnya.                                                                                                             "
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tentangaplikasi" />
+
+        <TextView
+            android:id="@+id/tvback"
+            android:layout_width="69dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/pop"
+            android:drawableLeft="@drawable/back"
+            android:gravity="center"
+            android:text="Back"
+            android:textColor="#477871"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

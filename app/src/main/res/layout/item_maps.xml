@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:ignore="MissingConstraints">
+
+        <!-- CardView with radius -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Alamat Restoran -->
+            <LinearLayout
+                android:id="@+id/content_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <!-- Ikon Lokasi -->
+                <ImageView
+                    android:id="@+id/iconLocation"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_location" />
+
+                <!-- Alamat -->
+                <TextView
+                    android:id="@+id/tvRestaurantAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/lokasi_deskripsi"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+
+            <!-- Kota Restoran -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kota_deskripsi"
+                android:textColor="@color/black"
+                android:layout_marginTop="65dp"
+                android:layout_marginStart="50dp"/>
+
+            <!-- Tambah Lokasi -->
+            <Button
+                android:id="@+id/buttonAddLocation"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="130dp"
+                android:layout_marginBottom="20dp"
+                app:cornerRadius="20dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/button_green"
+                android:text="@string/tambah_lokasi"
+                android:layout_gravity="center_horizontal|bottom"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

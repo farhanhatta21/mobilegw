@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    tools:context=".TukarPoinActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Tombol Back -->
+        <TextView
+            android:id="@+id/tvback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"/> <!-- Ganti dengan ikon back Anda -->
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tukar Poin"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="8dp" />
+
+        <!-- Subheader -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pulsa"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp" />
+
+        <!-- Input Nomor Telepon -->
+        <EditText
+            android:id="@+id/editTextPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nomor Telepon"
+            android:inputType="phone"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Pilih Nominal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Nominal"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Layout for Nominal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <!-- Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_pulsa_5000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n5.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:elevation="4dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_pulsa_10000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n10.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:elevation="4dp"/>
+            </LinearLayout>
+
+            <!-- Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_pulsa_15000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n15.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:layout_marginStart="8dp"
+                    android:elevation="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pulsa_20000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n20.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="4dp"/>
+            </LinearLayout>
+
+            <!-- Row 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_pulsa_25000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n25.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:elevation="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pulsa_30000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n30.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="4dp"/>
+            </LinearLayout>
+
+            <!-- Row 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_pulsa_50000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n50.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:elevation="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pulsa_100000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n100.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="4dp"/>
+            </LinearLayout>
+
+            <!-- Row 5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_pulsa_200000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n200.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:elevation="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pulsa_500000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_with_shadow"
+                    android:text="Pulsa\n500.000"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:clickable="true"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:textColor="@color/button_green"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btntukarpoint"
+            android:layout_width="300dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/button_green"
+            android:fontFamily="@font/pop"
+            android:text="Tukar Poin Sekarang"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+
+</ScrollView>

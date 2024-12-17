@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">pblmobile</string>
+    <string name="sampah">Sampahku</string>
+    <string name="enter">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="masukkan_email">Masukkan Email</string>
+    <string name="masuk">Masuk</string>
+    <string name="Login">Masuk</string>
+    <string name="masukkan_password">Masukkan Password</string>
+    <string name="silahkan_masuk_dengan_akun_anda">Silahkan Masuk Dengan Akun Anda</string>
+    <string name="lupa_password">Lupa Password</string>
+    <string name="belum_punya_akun">belum punya akun?</string>
+    <string name="buat_akun">Buat akun!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_nav2">bottom_nav2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="searchbar_hint">Search</string>
+    <string name="lokasi_deskripsi">Lokasi Tempat Sampah</string>
+    <string name="kota_deskripsi">Kota Makassar, Sulawesi Selatan</string>
+    <string name="tambah_lokasi">Tambah Lokasi</string>
+    <string name="google_maps_key">AIzaSyC5z7pB1rtnC_cgB0ErIbi8pwk0y2b9zbY</string>
+</resources>
