@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pblmobile.Api.RetrofitClient
 import com.example.pblmobile.Models.LaporResponse
+import com.example.pblmobile.Models.Laporan
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import retrofit2.Call
 import retrofit2.Callback
@@ -56,7 +57,7 @@ class BelumDitanggapiFragment : Fragment() {
                     progressIndicator.visibility = View.GONE
                     if (response.isSuccessful) {
                         val laporanList = response.body()?.laporan ?: emptyList()
-                        recyclerView.adapter = LaporAdapter(laporanList)
+                        recyclerView.adapter = LaporAdapter(requireContext(), laporanList)
                     } else {
                         Toast.makeText(requireContext(), "Failed to load data", Toast.LENGTH_SHORT).show()
                     }
@@ -72,5 +73,4 @@ class BelumDitanggapiFragment : Fragment() {
             Toast.makeText(requireContext(), "ID Akun tidak ditemukan. Harap login ulang.", Toast.LENGTH_SHORT).show()
         }
     }
-
 }

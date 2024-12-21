@@ -1,22 +1,28 @@
 package com.example.pblmobile
 
-import android.graphics.drawable.Drawable
-import android.os.Handler
-import android.os.Looper
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
+import com.example.pblmobile.Api.RetrofitClient
+import com.example.pblmobile.Models.DeleteResponse
 import com.example.pblmobile.Models.Laporan
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class LaporAdapter(private val laporanList: List<Laporan>) :
-    RecyclerView.Adapter<LaporAdapter.LaporViewHolder>() {
+class LaporAdapter(
+    private val context: Context,
+    private val laporanList: List<Laporan>
+) : RecyclerView.Adapter<LaporAdapter.LaporViewHolder>() {
 
     class LaporViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNama: TextView = itemView.findViewById(R.id.tvNama)
@@ -34,40 +40,56 @@ class LaporAdapter(private val laporanList: List<Laporan>) :
         holder.tvNama.text = item.nama
         holder.tvLokasi.text = "Lokasi: ${item.lokasi}"
 
-        // Tampilkan placeholder terlebih dahulu
-        Glide.with(holder.itemView.context)
-            .load(R.drawable.loading) // Placeholder image langsung
+        // Muat gambar menggunakan Glide
+        Glide.with(context)
+            .load(item.bukti)
+            .placeholder(R.drawable.loading)
+            .error(R.drawable.gambartdktersedia)
             .into(holder.ivBukti)
 
-        // Setelah 2 detik, muat gambar sebenarnya
-        Handler(Looper.getMainLooper()).postDelayed({
-            Glide.with(holder.itemView.context)
-                .load(item.bukti) // URL atau Base64 string
-                .error(R.drawable.gambartdktersedia) // Gambar error
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        // Log error jika diperlukan
-                        e?.logRootCauses("Glide Load Error")
-                        return false
-                    }
+        // Tambahkan long press listener
+        holder.itemView.setOnLongClickListener {
+            showPopupMenu(holder.itemView, item)
+            true
+        }
+    }
 
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: com.bumptech.glide.load.DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        return false
-                    }
-                })
-                .into(holder.ivBukti)
-        }, 1600) // 2 detik
+    private fun showPopupMenu(view: View, laporan: Laporan) {
+        val popup = PopupMenu(context, view)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(R.menu.menu_laporan, popup.menu)
+
+        popup.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_delete -> {
+                    deleteLaporan(laporan)
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
+    }
+
+    private fun deleteLaporan(laporan: Laporan) {
+        val requestBody = mapOf("id_lapor" to laporan.id_lapor.toString())
+
+        RetrofitClient.instance.deleteLaporan(requestBody).enqueue(object : Callback<DeleteResponse> {
+            override fun onResponse(call: Call<DeleteResponse>, response: Response<DeleteResponse>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(context, "Laporan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(context, Menuutama::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    context.startActivity(intent)
+                } else {
+                    Toast.makeText(context, "Gagal menghapus laporan", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<DeleteResponse>, t: Throwable) {
+                Toast.makeText(context, "Terjadi kesalahan: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     override fun getItemCount(): Int = laporanList.size

@@ -1,5 +1,6 @@
 package com.example.pblmobile
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +11,9 @@ import com.bumptech.glide.Glide
 import com.example.pblmobile.Models.Laporan
 
 class AdminAdapter(
-    private val laporList: List<Laporan>,
-    private val onItemLongClickListener: (Laporan) -> Unit  // Menambahkan listener untuk long press
+    private val laporList: MutableList<Laporan>,
+    private val onItemEditListener: (Laporan) -> Unit, // Listener for edit
+    private val onItemDeleteListener: (Laporan, Int) -> Unit // Listener for delete
 ) : RecyclerView.Adapter<AdminAdapter.LaporViewHolder>() {
 
     class LaporViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -39,10 +41,32 @@ class AdminAdapter(
 
         // Long press event handler
         holder.itemView.setOnLongClickListener {
-            onItemLongClickListener(laporan)  // Trigger the long click listener
+            val popupMenu = android.widget.PopupMenu(holder.itemView.context, holder.itemView)
+            popupMenu.menuInflater.inflate(R.menu.menu_admin_options, popupMenu.menu)
+
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.action_edit -> {
+                        onItemEditListener(laporan) // Call edit listener
+                        true
+                    }
+                    R.id.action_delete -> {
+                        onItemDeleteListener(laporan, position) // Call delete listener
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.show()
             true
         }
     }
 
     override fun getItemCount(): Int = laporList.size
+
+    // Method to remove item
+    fun removeItem(position: Int) {
+        laporList.removeAt(position)
+        notifyItemRemoved(position)
+    }
 }

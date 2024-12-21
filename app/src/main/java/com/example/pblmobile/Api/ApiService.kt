@@ -79,8 +79,6 @@ interface ApiService {
     @POST("/api/kelompok_1/deletelapor.php")
     fun deleteLaporan(@Body requestBody: Map<String, String>): Call<DeleteResponse>
 
-
-
 }
 
 
