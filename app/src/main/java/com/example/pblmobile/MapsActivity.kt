@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
@@ -33,7 +34,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var placesClient: PlacesClient
     private lateinit var cardViewPanel: CardView
     private lateinit var locationTitle: TextView
-    private lateinit var searchView: SearchView
+    private lateinit var buttonBack: ImageView
     private lateinit var tvCityDescription: TextView
     private var searchResults: List<AutocompletePrediction> = emptyList()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -60,12 +61,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         cardViewPanel = findViewById(R.id.cardViewPanel)
         locationTitle = findViewById(R.id.tvRestaurantAddress)
         tvCityDescription = findViewById(R.id.tvCityDescription)
-        searchView = findViewById(R.id.search_view)
+        buttonBack = findViewById(R.id.backButtonMaps)
+
+        buttonBack.setOnClickListener{
+            finish()
+        }
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        setupSearchViewListener()
     }
 
     private fun checkLocationPermission() {
@@ -156,17 +160,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-
-    private fun setupSearchViewListener() {
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (!query.isNullOrEmpty()) performSearch(query)
-                return true
-            }
-
-            override fun onQueryTextChange(query: String?): Boolean = true
-        })
-    }
 
     private fun performSearch(query: String) {
         val request = FindAutocompletePredictionsRequest.builder()

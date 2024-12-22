@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -23,6 +24,7 @@ class DetailLaporanActivity : AppCompatActivity() {
     private var laporanStatus: String? = null
     private var latitude: Double? = null
     private var longitude: Double? = null
+    private lateinit var buttonBack: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,11 @@ class DetailLaporanActivity : AppCompatActivity() {
         // Display data
         findViewById<TextView>(R.id.tvNamaDetail).text = laporanNama
         findViewById<TextView>(R.id.tvLokasiDetail).text = laporanLokasi
+        buttonBack = findViewById(R.id.backButtonDetail)
+
+        buttonBack.setOnClickListener{
+            finish()
+        }
 
         // Load image using Glide
         Glide.with(this)

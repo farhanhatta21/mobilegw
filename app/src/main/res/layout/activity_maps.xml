@@ -14,21 +14,18 @@
         android:layout_height="match_parent"
         tools:context=".MapsActivity" />
 
-    <!-- AppBar Layout -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!-- SearchView untuk mencari lokasi -->
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/searchbar_hint"
-            android:iconifiedByDefault="false"
-            android:background="@color/button_green"
-            app:queryBackground="@color/button_green" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <!-- Tombol kembali -->
+    <ImageView
+        android:id="@+id/backButtonMaps"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/circle_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_back"
+        android:contentDescription="@string/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Panel informasi kota & tombol Tambah Lokasi -->
     <androidx.cardview.widget.CardView

@@ -3,8 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/backButtonDetail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back"
+            android:contentDescription="@string/back" />
+
+        <TextView
+            android:id="@+id/detailTitle"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="@string/name_detail"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:fontFamily="@font/pop" />
+    </LinearLayout>
 
     <!-- Gambar bukti laporan -->
 
@@ -16,7 +45,7 @@
         android:text="Nama Laporan"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-medium"/>
 
     <!-- Lokasi laporan -->
@@ -37,7 +66,6 @@
         android:contentDescription="gambar"
         android:scaleType="centerCrop"
         android:src="@drawable/loading" />
-
 
     <Spinner
         android:id="@+id/spinnerStatusDetail"

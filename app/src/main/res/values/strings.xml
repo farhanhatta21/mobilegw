@@ -25,4 +25,6 @@
     <string name="kota_deskripsi">Kota Makassar, Sulawesi Selatan</string>
     <string name="tambah_lokasi">Tambah Lokasi</string>
     <string name="google_maps_key">AIzaSyC5z7pB1rtnC_cgB0ErIbi8pwk0y2b9zbY</string>
+    <string name="back">back\n</string>
+    <string name="name_detail">Detail Laporan</string>
 </resources>
