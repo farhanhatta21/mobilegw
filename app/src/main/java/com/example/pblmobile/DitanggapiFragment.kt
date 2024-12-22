@@ -56,12 +56,14 @@ class DitanggapiFragment : Fragment() {
                 override fun onResponse(call: Call<LaporResponse>, response: Response<LaporResponse>) {
                     progressIndicator.visibility = View.GONE
                     if (response.isSuccessful) {
-                        val laporanList = response.body()?.laporan ?: emptyList()
+                        // Convert to MutableList
+                        val laporanList = response.body()?.laporan?.toMutableList() ?: mutableListOf()
                         recyclerView.adapter = LaporAdapter(requireContext(), laporanList)
                     } else {
                         Toast.makeText(requireContext(), "Failed to load data", Toast.LENGTH_SHORT).show()
                     }
                 }
+
 
                 override fun onFailure(call: Call<LaporResponse>, t: Throwable) {
                     progressIndicator.visibility = View.GONE

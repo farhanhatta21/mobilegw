@@ -59,7 +59,7 @@ class BeritaAdapter(
 
         // Long click untuk menampilkan opsi edit dan delete
         holder.itemView.setOnLongClickListener {
-            showOptionsDialog(berita.id_berita)
+            showOptionsDialog(berita)
             true
         }
     }
@@ -89,28 +89,41 @@ class BeritaAdapter(
     }
 
 
-    private fun showOptionsDialog(id_berita: String) {
+    private fun showOptionsDialog(berita: BeritaItem) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Pilih Aksi")
         builder.setItems(arrayOf("Edit", "Hapus")) { _, which ->
             when (which) {
                 0 -> {
                     // Logic for editing the berita
-                    editBerita(id_berita)
+                    editBerita(
+                        berita.id_berita,
+                        berita.judul,
+                        berita.gambar,
+                        berita.deskripsi,
+                        berita.detail
+                    )
                 }
                 1 -> {
                     // Logic for deleting the berita
-                    showDeleteConfirmationDialog(id_berita)
+                    showDeleteConfirmationDialog(berita.id_berita)
                 }
             }
         }
         builder.show()
     }
 
-    private fun editBerita(id_berita: String) {
-        // Add your logic to edit the berita
-        Toast.makeText(context, "Edit berita: $id_berita", Toast.LENGTH_SHORT).show()
+
+    private fun editBerita(id_berita: String, judul: String, gambar: String, deskripsi: String, detail: String) {
+        val intent = Intent(context, EditBeritaActivity::class.java)
+        intent.putExtra("id_berita", id_berita)
+        intent.putExtra("judul", judul)
+        intent.putExtra("gambar", gambar)
+        intent.putExtra("deskripsi", deskripsi)
+        intent.putExtra("detail", detail)
+        context.startActivity(intent)
     }
+
 
     private fun deleteBerita(id_berita: String) {
         RetrofitClient.instance.deleteBerita(id_berita).enqueue(object : Callback<DeleteResponse> {

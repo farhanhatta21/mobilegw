@@ -1,101 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@android:color/white">
 
-    <RelativeLayout
+    <!-- Back Button -->
+
+    <!-- ScrollView for content -->
+    <TextView
+        android:id="@+id/tvback"
+        android:layout_width="69dp"
+        android:layout_height="29dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:drawableLeft="@drawable/back"
+        android:fontFamily="@font/pop"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Back"
+        android:textColor="#477871" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvback"
+        android:padding="16dp">
 
-        <!-- Title of the news article -->
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
-            android:text="Judul Berita"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:fontFamily="@font/pop" /> <!-- Added letter spacing for readability -->
-
-        <!-- CardView for the news image -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewImage"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@id/textViewTitle"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imageViewGambar"
+            <!-- Title of the news article -->
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="Judul Berita"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:fontFamily="@font/pop" />
+
+            <!-- CardView for the news image -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/gambartdktersedia" />
-        </androidx.cardview.widget.CardView>
+                android:layout_height="200dp"
+                android:layout_below="@id/textViewTitle"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp">
 
-        <!-- Date of the news article -->
-        <TextView
-            android:id="@+id/textViewDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/cardViewImage"
-            android:layout_marginTop="10dp"
-            android:text="Waktu"
-            android:textSize="14sp"
-            android:textColor="#757575"
-            android:fontFamily="@font/pop"
-            android:letterSpacing="0.3" /> <!-- Added letter spacing for readability -->
+                <ImageView
+                    android:id="@+id/imageViewGambar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gambartdktersedia" />
+            </androidx.cardview.widget.CardView>
 
-        <!-- Description of the news article -->
-        <TextView
-            android:id="@+id/textViewDeskripsi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textViewDate"
-            android:layout_marginTop="12dp"
-            android:text="Deskripsi"
-            android:textSize="16sp"
-            android:textColor="#424242"
-            android:fontFamily="@font/pop"
-            android:lineSpacingExtra="4dp" /> <!-- Line spacing for readability -->
+            <!-- Date of the news article -->
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardViewImage"
+                android:layout_marginTop="10dp"
+                android:text="Waktu"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:fontFamily="@font/pop"
+                android:letterSpacing="0.3" />
 
-        <!-- Back button -->
-        <TextView
-            android:id="@+id/tvback"
-            android:layout_width="69dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/pop"
-            android:drawableLeft="@drawable/back"
-            android:gravity="center"
-            android:text="Back"
-            android:textColor="#477871"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <!-- Description of the news article -->
+            <TextView
+                android:id="@+id/textViewDeskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewDate"
+                android:layout_marginTop="12dp"
+                android:text="Deskripsi"
+                android:textSize="16sp"
+                android:textColor="#424242"
+                android:fontFamily="@font/pop"
+                android:lineSpacingExtra="4dp" />
 
-        <!-- Detailed content of the news article -->
-        <TextView
-            android:id="@+id/textViewDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textViewDeskripsi"
-            android:layout_marginTop="14dp"
-            android:text="Detail"
-            android:textSize="16sp"
-            android:textColor="#212121"
-            android:fontFamily="@font/pop"
-            android:lineSpacingExtra="4dp" /> <!-- Line spacing and letter spacing for readability -->
-
-    </RelativeLayout>
-</ScrollView>
+            <!-- Detailed content of the news article -->
+            <TextView
+                android:id="@+id/textViewDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewDeskripsi"
+                android:layout_marginTop="14dp"
+                android:text="Detail"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:fontFamily="@font/pop"
+                android:lineSpacingExtra="4dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

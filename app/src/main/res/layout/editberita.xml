@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SimpanBerita">
+    android:background="@color/quantum_white_100"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,13 +34,15 @@
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_marginTop="36dp"
-            android:background="@drawable/roundedijo"
             android:scaleType="centerCrop"
+            android:background="@drawable/rounded"
+            android:elevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBack"
             app:srcCompat="@drawable/masukkangambar" />
+
 
         <EditText
             android:id="@+id/etBeritaTitle"

@@ -6,5 +6,5 @@ data class BeritaItem(
     val gambar: String,
     val deskripsi: String,
     val detail: String,
-    val waktu: String
+    val waktu: String = "" // Default kosong untuk waktu
 )

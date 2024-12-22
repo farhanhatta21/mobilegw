@@ -1,7 +1,6 @@
 package com.example.pblmobile
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
@@ -21,7 +20,7 @@ import retrofit2.Response
 
 class LaporAdapter(
     private val context: Context,
-    private val laporanList: List<Laporan>
+    private val laporanList: MutableList<Laporan> // Changed to MutableList for dynamic updates
 ) : RecyclerView.Adapter<LaporAdapter.LaporViewHolder>() {
 
     class LaporViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,21 +39,21 @@ class LaporAdapter(
         holder.tvNama.text = item.nama
         holder.tvLokasi.text = "Lokasi: ${item.lokasi}"
 
-        // Muat gambar menggunakan Glide
+        // Load image using Glide
         Glide.with(context)
             .load(item.bukti)
             .placeholder(R.drawable.loading)
             .error(R.drawable.gambartdktersedia)
             .into(holder.ivBukti)
 
-        // Tambahkan long press listener
+        // Add long press listener
         holder.itemView.setOnLongClickListener {
-            showPopupMenu(holder.itemView, item)
+            showPopupMenu(holder.itemView, item, position)
             true
         }
     }
 
-    private fun showPopupMenu(view: View, laporan: Laporan) {
+    private fun showPopupMenu(view: View, laporan: Laporan, position: Int) {
         val popup = PopupMenu(context, view)
         val inflater: MenuInflater = popup.menuInflater
         inflater.inflate(R.menu.menu_laporan, popup.menu)
@@ -62,7 +61,7 @@ class LaporAdapter(
         popup.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_delete -> {
-                    deleteLaporan(laporan)
+                    deleteLaporan(laporan, position)
                     true
                 }
                 else -> false
@@ -71,16 +70,17 @@ class LaporAdapter(
         popup.show()
     }
 
-    private fun deleteLaporan(laporan: Laporan) {
+    private fun deleteLaporan(laporan: Laporan, position: Int) {
         val requestBody = mapOf("id_lapor" to laporan.id_lapor.toString())
 
         RetrofitClient.instance.deleteLaporan(requestBody).enqueue(object : Callback<DeleteResponse> {
             override fun onResponse(call: Call<DeleteResponse>, response: Response<DeleteResponse>) {
                 if (response.isSuccessful) {
+                    // Remove the item from the list
+                    laporanList.removeAt(position)
+                    // Notify the adapter of the removed item
+                    notifyItemRemoved(position)
                     Toast.makeText(context, "Laporan berhasil dihapus", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(context, Menuutama::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    context.startActivity(intent)
                 } else {
                     Toast.makeText(context, "Gagal menghapus laporan", Toast.LENGTH_SHORT).show()
                 }

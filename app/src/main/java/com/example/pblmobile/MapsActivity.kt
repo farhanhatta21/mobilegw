@@ -28,7 +28,7 @@ import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.api.net.FetchPlaceRequest
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
-
+    private var centerMarker: com.google.android.gms.maps.model.Marker? = null
     private lateinit var mMap: GoogleMap
     private lateinit var placesClient: PlacesClient
     private lateinit var cardViewPanel: CardView
@@ -86,20 +86,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Try to get the current location and center the map there
+        // Get the current location and center the map there
         getCurrentLocation()
 
-        // Set a default fallback location (e.g., a city center)
-        val defaultLocation = LatLng(-6.200000, 106.816666) // Jakarta, Indonesia
+        // Set a default fallback location (e.g., Jakarta, Indonesia)
+        val defaultLocation = LatLng(-6.200000, 106.816666)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 15f))
 
-        // Allow user to select a location by tapping on the map
-        mMap.setOnMapClickListener { latLng ->
-            mMap.clear() // Remove previous markers
-            mMap.addMarker(MarkerOptions().position(latLng).title("Selected Location"))
-            fetchAddressFromLocation(latLng.latitude, latLng.longitude)
+        // Add a marker to the center of the map
+        centerMarker = mMap.addMarker(
+            MarkerOptions()
+                .position(defaultLocation)
+                .title("Selected Location")
+        )
+
+        // Update the marker position and address when the map is moved
+        mMap.setOnCameraIdleListener {
+            val centerPosition = mMap.cameraPosition.target
+            centerMarker?.position = centerPosition
+            fetchAddressFromLocation(centerPosition.latitude, centerPosition.longitude)
         }
     }
+
+
 
 
     private fun getCurrentLocation() {
@@ -107,11 +116,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
                     val userLocation = LatLng(location.latitude, location.longitude)
-                    mMap.clear()
-                    mMap.addMarker(MarkerOptions().position(userLocation).title("You are here"))
+                    // Pindahkan kamera ke lokasi pengguna
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
 
-                    // Optionally, update the UI with the current location address
+                    // Perbarui posisi marker di tengah peta
+                    centerMarker?.position = userLocation
+
+                    // Perbarui alamat di UI
                     fetchAddressFromLocation(location.latitude, location.longitude)
                 } else {
                     Toast.makeText(this, "Location not available. Please select a location manually.", Toast.LENGTH_SHORT).show()
@@ -121,6 +132,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             Toast.makeText(this, "Location permission required to fetch your current location.", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 
     private fun fetchAddressFromLocation(latitude: Double, longitude: Double) {

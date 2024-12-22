@@ -14,6 +14,7 @@ import com.example.pblmobile.Models.BeritaResponse
 import com.example.pblmobile.Models.Beritaku
 import com.example.pblmobile.Models.BeritakuResponse
 import com.example.pblmobile.Models.DeleteResponse
+import com.example.pblmobile.Models.EditResponse
 
 import retrofit2.Call
 import retrofit2.Response
@@ -78,6 +79,9 @@ interface ApiService {
 
     @POST("/api/kelompok_1/deletelapor.php")
     fun deleteLaporan(@Body requestBody: Map<String, String>): Call<DeleteResponse>
+
+    @POST("/api/kelompok_1/editberita.php")
+    fun editBerita(@Body requestBody: Map<String, String>): Call<EditResponse>
 
 }
 
